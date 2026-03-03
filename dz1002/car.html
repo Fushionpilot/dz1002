@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car</title>
+</head>
+<body>
+    <h2>Enter car data</h2>
+
+<input id="brand" placeholder="Brand"><br><br>
+<input id="model" placeholder="Model"><br><br>
+<input id="year" placeholder="Year"><br><br>
+
+<button onclick="sendCar()">Submit</button>
+
+<p id="result"></p>
+
+<script>
+function sendCar() {
+    let brand = document.getElementById("brand").value;
+    let model = document.getElementById("model").value;
+    let year = document.getElementById("year").value;
+
+    fetch(`/car?brand=${brand}&model=${model}&year=${year}`)
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("result").innerText = data;
+    });
+}
+</script>
+</body>
+</html>
