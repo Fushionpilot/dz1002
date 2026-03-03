@@ -6,28 +6,16 @@
     <title>Car</title>
 </head>
 <body>
-    <h2>Enter car data</h2>
 
-<input id="brand" placeholder="Brand"><br><br>
-<input id="model" placeholder="Model"><br><br>
-<input id="year" placeholder="Year"><br><br>
+<h2>Enter car data</h2>
 
-<button onclick="sendCar()">Submit</button>
+<form action="/car" method="GET">
+    <input name="brand" placeholder="Brand"><br><br>
+    <input name="model" placeholder="Model"><br><br>
+    <input name="year" placeholder="Year"><br><br>
+    <button type="submit">Submit</button>
+</form>
 
-<p id="result"></p>
-
-<script>
-function sendCar() {
-    let brand = document.getElementById("brand").value;
-    let model = document.getElementById("model").value;
-    let year = document.getElementById("year").value;
-
-    fetch(`/car?brand=${brand}&model=${model}&year=${year}`)
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById("result").innerText = data;
-    });
-}
 </script>
 </body>
 </html>
